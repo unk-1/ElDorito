@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../Blam/BlamData.hpp"
-
 namespace Patches
 {
 	namespace Forge
@@ -11,7 +9,5 @@ namespace Patches
 
 		// Signal to delete the current item, if any
 		void SignalDelete();
-
-		uint32_t CloneObjectUnderCrosshair(float boundsScale);
 	}
 }

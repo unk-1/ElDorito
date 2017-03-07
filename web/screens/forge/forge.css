@@ -1,0 +1,77 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Tahoma", sans-serif;
+    overflow: hidden;
+}
+
+.window {
+    opacity: 0.88;
+    background: rgb(30, 30, 30);
+    display: inline-block;
+    padding: 0.8em;
+    color: #fff;
+    overflow: hidden;
+    position: absolute;
+    margin: 10px;
+    user-select: none;
+}
+
+    .window .title-bar {
+        position: absolute;
+        height: 1.8em;
+        background: rgb(10, 10, 10);
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .window .body {
+        margin-top: 1.6em;
+    }
+
+.title-bar .sys-menu {
+    display: inline;
+    right: 0;
+    position: absolute;
+}
+
+.title-bar .title {
+    position: relative;
+    top: 0.5em;
+    left: 0.5em;
+    font-size: 0.8em;
+}
+
+.title-bar .btn-close {
+    margin-right: 0.4em;
+    position: relative;
+    top: 0.2em;
+    cursor: pointer;
+    user-select: none;
+}
+
+    .title-bar .btn-close:hover {
+        color: #555;
+    }
+
+.form-group {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+label {
+    text-align: left;
+    display: block;
+    padding: 0;
+    margin: 0.2em 0.1em;
+    font-size: 0.8em;
+}
+
+input {
+    width: 80px;
+    padding: 0.2em;
+    margin: 0;
+}

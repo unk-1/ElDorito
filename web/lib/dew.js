@@ -559,6 +559,14 @@ CommandType = {
         return dew.callMethod("cancelVirtualKeyboard");
     }
 
+
+    dew.forgeCommand = function (type, payload) {
+        return dew.callMethod("forge_sendCommand", {
+            type: type,
+            payload: payload
+        }, jsonResultMapping);
+    }
+
     /**
      * Registers a callback to be run when an event occurs.
      *

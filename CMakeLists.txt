@@ -171,6 +171,8 @@ add_library(ElDorito SHARED
     src/Console.hpp
     src/DirectXHook.cpp
     src/DirectXHook.hpp
+	src/Forge/ForgeTool.cpp
+	src/Forge/FogeTool.hpp
     src/Modules/ModuleBase.cpp
     src/Modules/ModuleBase.hpp
     src/Modules/ModuleCamera.cpp
@@ -297,6 +299,8 @@ add_library(ElDorito SHARED
     src/Web/Ui/WebConsole.hpp
     src/Web/Ui/WebChat.cpp
     src/Web/Ui/WebChat.hpp
+	src/Web/Ui/WebForge.cpp
+    src/Web/Ui/WebForge.hpp
     src/Web/Ui/WebLoadingScreen.cpp
     src/Web/Ui/WebLoadingScreen.hpp
     src/Web/Ui/WebVirtualKeyboard.cpp
@@ -346,6 +350,9 @@ set (WEB_SOURCES
     web/screens/error/error.css
     web/screens/error/error.js
     web/screens/error/index.html
+	web/screens/forge/forge.css
+    web/screens/forge/forge.js
+    web/screens/forge/index.html
     web/screens/keyboard/index.html
     web/screens/keyboard/keyboard.css
     web/screens/keyboard/keyboard.js

@@ -2,6 +2,7 @@
 #include "ClientFunctions.hpp"
 #include "../../Ui/ScreenLayer.hpp"
 #include "../../Ui/WebVirtualKeyboard.hpp"
+#include "../../Ui/WebForge.hpp"
 #include "../../../CommandMap.hpp"
 #include "../../../Blam/BlamNetwork.hpp"
 #include "../../../Patches/Network.hpp"
@@ -224,7 +225,7 @@ namespace Anvil
 					QueryError OnCommands(const rapidjson::Value &p_Args, std::string *p_Result)
 					{
 						const auto &commandMap = Modules::CommandMap::Instance();
-						
+
 						rapidjson::StringBuffer buffer;
 						rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
 						writer.StartArray();
@@ -334,7 +335,7 @@ namespace Anvil
 							return QueryError_BadQuery;
 						}
 
-						if(teamChat->value.GetBool())
+						if (teamChat->value.GetBool())
 							*p_Result = Server::Chat::SendTeamMessage(message->value.GetString());
 						else
 							*p_Result = Server::Chat::SendGlobalMessage(message->value.GetString());
@@ -422,8 +423,6 @@ namespace Anvil
 										writer.Int(pvpStats.StatsAgainstEachPlayer[i].Kills);
 										writer.EndObject();
 									}
-									
-
 								}
 								writer.EndArray();
 
@@ -441,8 +440,6 @@ namespace Anvil
 										writer.Int(pvpStats.StatsAgainstEachPlayer[i].KilledBy);
 										writer.EndObject();
 									}
-									
-
 								}
 								writer.EndArray();
 
@@ -506,6 +503,11 @@ namespace Anvil
 					{
 						Web::Ui::WebVirtualKeyboard::Cancel();
 						return QueryError_Ok;
+					}
+
+					QueryError OnForgeCommand(const rapidjson::Value &p_Args, std::string *p_Result)
+					{
+						return Web::Ui::Forge::OnCommand(p_Args, p_Result);
 					}
 				}
 			}

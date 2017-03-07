@@ -52,6 +52,7 @@ void WebRendererHandler::OnAfterCreated(CefRefPtr<CefBrowser> p_Browser)
 		m_QueryHandler->AddMethod("stats", Bridge::ClientFunctions::OnStats);
 		m_QueryHandler->AddMethod("submitVirtualKeyboard", Bridge::ClientFunctions::OnSubmitVirtualKeyboard);
 		m_QueryHandler->AddMethod("cancelVirtualKeyboard", Bridge::ClientFunctions::OnCancelVirtualKeyboard);
+		m_QueryHandler->AddMethod("forge_sendCommand", Bridge::ClientFunctions::OnForgeCommand);
 
 		m_BrowserRouter->AddHandler(m_QueryHandler.get(), true);
 	}
