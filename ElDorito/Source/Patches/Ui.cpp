@@ -358,6 +358,33 @@ namespace Patches
 				scoreboardChud->HudWidgets[speakingPlayerIndex].StateData[0].ScoreboardFlags1 = (ChudDefinition::StateDataScoreboardFlags1)0;
 		}
 
+		int __stdcall GetHUDGlobalsForRepresentation(void* playerRepresentation)
+		{
+			auto nameId = *(uint32_t*)playerRepresentation;
+			switch (nameId)
+			{
+			case 0x111B: // monitor
+				return 2;
+			case 0x1119: //mp_elite
+			case 0xCC: // dervish
+				return 1;
+			default:
+				return 0;
+			}
+		}
+
+		__declspec(naked) void GetHUDGlobalsHook()
+		{
+			__asm
+			{
+				push ecx
+				call GetHUDGlobalsForRepresentation
+				pop esi
+				pop ebp
+				retn
+			}
+		}
+
 		void ApplyAll()
 		{
 			// Rewire $hq.MatchmakingLeaveQueue() to end the game
@@ -443,6 +470,8 @@ namespace Patches
 
 			// Game window creation callbacks
 			Hook(0x622057, CreateGameWindowHook, HookFlags::IsCall).Apply();
+
+			Hook(0x6895E7, GetHUDGlobalsHook, HookFlags::None).Apply();
 		}
 
 		void ApplyMapNameFixes()
